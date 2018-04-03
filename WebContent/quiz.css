@@ -1,0 +1,301 @@
+.quizName{
+	font-weight: bold;
+}
+.title{
+	margin-left:500px;
+}
+.quiz1{
+	height:463px;
+ 	margin-top:30px;
+	display:inline-block;
+}
+
+.quiz2{
+	height:463px;
+	margin-top:30px;
+	margin-left:200px;
+	display:inline-block;
+}
+
+
+.question{
+	
+	font-weight:bold;
+	font-size:22.5px;
+}
+
+#send1{
+	position:absolute;
+	bottom:10px;
+    	right:10px;
+}
+#nameDiv1{
+	margin-left:10px;
+	display:block;
+}
+
+#lastNameDiv1{
+	margin-left:10px;
+	display:block;
+}
+
+#emailDiv1{
+	margin-left:10px;
+	display:block;
+}
+
+#send2{
+	position:absolute;
+	bottom:10px;
+    	right:10px;
+}
+#nameDiv2{
+	margin-left:10px;
+	display:block;
+}
+#quizname2{
+	margin-left:5px;
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	color:rgb(0,128,128);
+}
+#quiznum2{
+	margin-left:5px;
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	color:rgb(0,128,128);
+}
+#quizPoints2{
+	margin-left:5px;
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	color:rgb(0,128,128);
+}
+#quizActive2{
+	margin-left:5px;
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	color:rgb(0,128,128);
+}
+
+
+#quizname1{
+	margin-left:5px;
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	color:rgb(0,128,128);
+}
+#quiznum1{
+	margin-left:5px;
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	color:rgb(0,128,128);
+}
+#quizPoints1{
+	margin-left:5px;
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	color:rgb(0,128,128);
+}
+#quizActive1{
+	margin-left:5px;
+	font-size:15px;
+	font-weight:bold;
+	display:inline-block;
+	color:rgb(0,128,128);
+}
+#lastNameDiv2{
+	margin-left:10px;
+	display:block;
+}
+
+#emailDiv2{
+	margin-left:10px;
+	display:block;
+}
+.skip{
+	float:right;
+}
+.answers{
+	width:300px;
+}
+
+.answerText{
+	margin-top:10px;
+	margin-left:10px;
+    color: dimgrey;
+	display:inline-block;
+}
+
+.quiz1check{
+	display:inline-block;
+	position:absolute;
+	right:0;	
+}
+
+.quiz2check{
+	display:inline-block;
+	position:absolute;
+	right:0;
+	
+}
+.skip1{
+	position: absolute;
+        bottom: 5px;
+        left: 5px;
+	
+}
+.next1{
+
+	position: absolute;
+        bottom: 5px;
+        right: 5px;
+}
+
+.skip2{
+	position: absolute;
+        bottom: 5px;
+        left: 5px;
+}
+.next2{
+	position: absolute;
+        bottom: 5px;
+        right: 5px;
+}
+
+.quizPhoto1{
+	
+  	height: 250px;
+  	background: url('slika7.jpg');
+	background-repeat:no-repeat;
+   	background-size:cover;
+}
+
+.button-p1{
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    font-weight:bold;
+    border-radius: 50px;
+}
+
+.button-p2{
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    font-weight:bold;
+    border-radius: 50px;
+}
+
+.quizPhoto2{
+	
+  	height: 250px;
+  	background: url('slika2.jpg');
+	background-repeat:no-repeat;
+   	background-size:cover;
+}
+
+.quizzes{
+	white-space: nowrap;
+	margin-left:220px;
+	
+	
+}
+
+.header{
+	text-align:center;
+	
+}
+p{
+	color:rgb(0,128,128);
+	font-style: italic;
+	display:inline-block;
+
+}
+
+#clockdiv1{
+	position:absolute;
+	left:110px;
+	bottom:80px;
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 40px;   
+}
+
+#clockdiv1 div > span{
+	padding: 30px;
+	text-align:center;
+	border-radius:50%;
+	background-color:rgb(255,64,129);
+	display: inline-block;
+
+	
+}
+
+.seconds1{
+	
+	display: inline-block;
+	
+}
+
+.seconds2{
+	
+	display: inline-block;
+
+}
+
+#errorQuestion{
+	text-align:center;
+	font-weight:bold;
+	margin-top:50px;
+	color:deeppink;
+}
+
+#errorQuestion2{
+	text-align:center;
+	font-weight:bold;
+	margin-top:50px;
+	color:deeppink;
+}
+
+#errorDataCard1{
+	text-align:center;
+	font-weight:bold;
+	margin-top:50px;
+	color:deeppink;
+}
+
+#errorDataCard2{
+	text-align:center;
+	font-weight:bold;
+	margin-top:50px;
+	color:deeppink;
+}
+
+#clockdiv2{
+	position:absolute;
+	left:110px;
+	bottom:80px;
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 40px;   
+}
+
+#clockdiv2 div > span{
+	padding: 30px;
+	border-radius:50%;
+	background-color:rgb(255,64,129);
+	display: inline-block;
+}
+

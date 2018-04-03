@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+        <link rel="stylesheet" href="icon.css">
+	    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-pink.min.css" />
+	    <script src="material.min.js"></script>
+        <link rel="stylesheet" href="index.css">
+        <script src="jquery-3.2.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="dialog-polyfill.css" />
+        <script src="dialog-polyfill.js"></script>
+        <script src="jquery.nestable.js"></script>
+    </head>
+    <body>
+ 
+    <dialog class = "deleteQuiz" style="border:2px;">
+    <div style="color:rgb(0,128,128);text-align:center; font-weight:bold; margin-bottom:35px;font-size:16px;">Are you sure you want to delete quiz?</div>
+    <button class="noQuiz mdl-button mdl-js-button mdl-button--accent"style="float:right;">NO</button>
+    <button class="yesQuiz mdl-button mdl-js-button mdl-button--accent"style="float:right;">YES</button>
+</dialog>
+    
+<dialog class = "deleteMember" style="border:2px;">
+    <div style="color:rgb(0,128,128);text-align:center; font-weight:bold; margin-bottom:35px;font-size:16px;">Are you sure you want to delete this editor?</div>
+    <button class="noMember mdl-button mdl-js-button mdl-button--accent"style="float:right;">NO</button>
+    <button class="yesMember mdl-button mdl-js-button mdl-button--accent"style="float:right;">YES</button>
+</dialog>
+    
+    <dialog class="mdl-dialog newQuiz">
+     <h4 id="nameOfNewQuiz" class="mdl-dialog__title" style="color:rgb(0,128,128)">Quiz</h4> 
+     <div class="mdl-dialog__content" >
+     <div id="newQuizContent" style="margin-bottom:10px; height:435px; overflow:auto"></div> 
+	 
+    <div class="first" style=" text-align: center;">
+          <button class="mdl-button mdl-js-button mdl-button--accent next">Next</button>
+          <button class="mdl-button mdl-js-button mdl-button--accent close4">Close</button>
+    </div>
+    
+    <div class="second" style="display:none;text-align: center;">
+          <button class="mdl-button mdl-js-button mdl-button--accent next1">Next</button>
+          <button class="mdl-button mdl-js-button mdl-button--accent finish">Finish</button>
+          <button class="mdl-button mdl-js-button mdl-button--accent close5">Close</button>
+    </div>
+    
+    <div class="third" style="display:none;text-align: center;">
+          <button class="mdl-button mdl-js-button mdl-button--accent save1">Save</button>
+          <button class="mdl-button mdl-js-button mdl-button--accent close6">Close</button>
+    </div>
+    </div>
+    
+    </dialog>
+    <dialog class="mdl-dialog inboxQuiz">
+     <h4 id="nameOfQuiz" class="mdl-dialog__title" style="color:rgb(0,128,128)"></h4> 
+     <div class="mdl-dialog__content" >
+     <div id="inboxQuizContent" style="margin-bottom:10px;width:400px; height:435px; overflow:auto"></div> 
+	 
+    <div style="text-align: center;">
+          <button class="mdl-button mdl-js-button mdl-button--accent close7">Close</button>
+    </div>
+    </div>
+    
+    </dialog>
+    
+        
+        
+     <dialog class="mdl-dialog editQuiz">
+        <h4 class="mdl-dialog__title" style="color:rgb(0,128,128)">Edit quiz</h4>
+        <div class="mdl-dialog__content">     
+    <div class="cf nestable-lists">
+
+        <div class="dd" id="nestable">
+            <ol class="dd-list">
+                <li class="dd-item nestableItem" data-id="1">
+                    <div class="dd-handle">Item 1</div>
+		           <ol class="dd-list" style="display:none">
+		                <div class="mdl-textfield mdl-js-textfield" style="max-width:300px">
+		                    <input class="mdl-textfield__input" type="text" id="sample1">
+		                    <label class="mdl-textfield__label" for="sample1">Text...</label>
+		                </div>
+		                <div class="answers">
+		                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+		                        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+		                        <span class="mdl-checkbox__label">Checkbox</span>
+		                    </label>
+		                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+		                        <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+		                        <span class="mdl-checkbox__label">Checkbox</span>
+		                    </label>
+
+		                </div>
+		                <br/>
+		                <p style="width:300px">
+		                <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2">
+		                </p>
+                    	    </ol>
+                </li>
+                <li class="dd-item nestableItem" data-id="2">
+                    <div class="dd-handle">Item 2</div>
+                    <ol class="dd-list" style="display:none">
+		                <div class="mdl-textfield mdl-js-textfield" style="max-width:300px">
+		                    <input class="mdl-textfield__input" type="text" id="sample1">
+		                    <label class="mdl-textfield__label" for="sample1">Text...</label>
+		                </div>
+		                <div class="answers">
+		                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+		                        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+		                        <span class="mdl-checkbox__label">Checkbox</span>
+		                    </label>
+		                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+		                        <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+		                        <span class="mdl-checkbox__label">Checkbox</span>
+		                    </label>
+
+		                </div>
+		                <br/>
+		                <p style="width:300px">
+		                <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2">
+		                </p>
+                    </ol>
+                </li>
+                <li class="dd-item nestableItem" data-id="3">
+                    <div class="dd-handle">Item 11</div>
+                    <ol class="dd-list"style="display:none">
+                        <div class="mdl-textfield mdl-js-textfield" style="max-width:300px">
+                            <input class="mdl-textfield__input" type="text" id="sample1">
+                            <label class="mdl-textfield__label" for="sample1">Text...</label>
+                        </div>
+                        <div class="answers">
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+                                <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+                                <span class="mdl-checkbox__label">Checkbox</span>
+                            </label>
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+                                <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+                                <span class="mdl-checkbox__label">Checkbox</span>
+                            </label>
+
+                        </div>
+                        <br/>
+                        <p style="width:300px">
+                        <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2">
+                        </p>
+                    </ol>
+                </li>
+                <li class="dd-item nestableItem" data-id="4">
+                    <div class="dd-handle">Item 12</div>
+		           <ol class="dd-list" style="display:none">
+		                <div class="mdl-textfield mdl-js-textfield" style="max-width:300px">
+		                    <input class="mdl-textfield__input" type="text" id="sample1">
+		                    <label class="mdl-textfield__label" for="sample1">Text...</label>
+		                </div>
+		                <div class="answers">
+		                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+		                        <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+		                        <span class="mdl-checkbox__label">Checkbox</span>
+		                    </label>
+		                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+		                        <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input">
+		                        <span class="mdl-checkbox__label">Checkbox</span>
+		                    </label>
+
+		                </div>
+		                <br/>
+		                <p style="width:300px">
+		                <input class="mdl-slider mdl-js-slider" type="range" id="s1" min="0" max="10" value="4" step="2">
+		                </p>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+         </div>
+         <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button mdl-js-button mdl-button--accent save1">Save</button>
+          <button type="button" id="closeDialog" class="mdl-button mdl-js-button mdl-button--accent close1">Close</button>
+        </div>
+        </dialog>
+      
+        
+        
+    <dialog class="mdl-dialog editmember">
+        <h4 class="mdl-dialog__title" style="color:rgb(0,128,128)">Edit member</h4>
+         <div class="mdl-dialog__content" id="editMemberContent" style="height:300px;">
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button mdl-js-button mdl-button--accent save">Save</button>
+          <button type="button" class="mdl-button mdl-js-button mdl-button--accent close">Close</button>
+        </div>
+    </dialog>
+
+    <dialog class="mdl-dialog createMember">
+        <h4 class="mdl-dialog__title" style="color:rgb(0,128,128)">New member</h4>
+        <div class="mdl-dialog__content" id="createMemberContent">       
+        </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button mdl-js-button mdl-button--accent save2">Save</button>
+          <button type="button" class="mdl-button mdl-js-button mdl-button--accent close2">Close</button>
+        </div>
+    </dialog>
+
+     
+    <div id="login" class="mdl-layout mdl-js-layout mdl-color--grey-100" >
+            <div class="mdl-card mdl-shadow--6dp">
+               <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
+                    <h2 class="mdl-card__title-text">Login</h2>
+               </div>
+               <div class="mdl-dialog__content">
+               	   <div id="errorLogin" style="display:none">Username or password are incorrect!!!</div>
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                 <input class="mdl-textfield__input" pattern="[A-Za-z]*([A-Za-z0-9]+)?" id="username">
+                                <label class="mdl-textfield__label" for="username">Username...</label>
+                                <span class="mdl-textfield__error">Username is not right formated!</span>
+                   </div> 
+
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                 <input class="mdl-textfield__input" type="password" pattern="[A-Za-z]*([A-Za-z0-9]+)?" id="password">
+                                <label class="mdl-textfield__label" for="password">Password...</label>
+                                <span class="mdl-textfield__error">Password is not number or letter!</span>
+                   </div>       
+                   <div class="mdl-dialog__actions">
+                      <button id="signIN" class="button-sign-in mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Sign in</button>
+                   </div>
+                </div>
+            </div>
+    </div>
+   
+  <div id="superadmin" class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs" style="display:none">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="superAdmin mdl-layout__title">SuperAdmin
+        <span class="page_title_span">|</span>
+        <span class="page_title_span"id="page">Quiz</span>
+      </span> 
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+         <button class="button-sign-out mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="signOUT">Logout <i class="button-right-icon material-icons">account_circle</i></button>
+      </nav>
+    </div>
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Quiz</a>
+      <a href="#fixed-tab-2" class="mdl-layout__tab">Members</a>
+      <a href="#fixed-tab-3" class="mdl-layout__tab">Inbox</a>
+    </div>
+  </header>
+ 
+  <main class="mdl-layout__content">
+    <section  class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+       <div class="mdl-layout">
+            <table class="quiz-list mdl-data-table mdl-js-data-table  mdl-shadow--2dp icons-hover">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric"># ID</th>
+                        <th class="mdl-data-table__cell--non-numeric">QUIZ NAME</th>
+                        <th class="mdl-data-table__cell--non-numeric">NUMBER OF QUESTIONS</th>
+                        <th class="mdl-data-table__cell--non-numeric">MAX POINTS</th>
+                        <th  align="right">
+                     </tr>
+                </thead>
+                <tbody id="tbodyQuiz">
+                    
+                </tbody>
+            </table>
+    </div>
+    <button id="createNew" class="create-new-button mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Create new</button>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+        <div class="mdl-layout">
+            <div class="mdl-spacer"></div>
+            <table class="members-list mdl-data-table mdl-js-data-table mdl-shadow--2dp icons-hover">    
+            <thead>
+            <tr>
+              <th class="mdl-data-table__cell--non-numeric"># ID</th>
+              <th class="mdl-data-table__cell--non-numeric">FIRST NAME</th>
+              <th class="mdl-data-table__cell--non-numeric">LAST NAME</th>
+              <th class="mdl-data-table__cell--non-numeric">E-MAIL</th>
+              <th colspan="2" align="right"><span class="create"><button class="addButton mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect"><i class="material-icons">add</i></button></span></th>    
+             </tr>
+          </thead>
+          <tbody id="tbodyUsers">
+            
+          </tbody>
+        </table>
+       </div>
+	  
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+        <div class="mdl-layout">
+            <table class="inbox-list mdl-data-table mdl-js-data-table icons-hover">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric"># ID</th>
+                        <th class="mdl-data-table__cell--non-numeric">FIRST NAME</th>
+                        <th class="mdl-data-table__cell--non-numeric">LAST NAME</th>
+                        <th class="mdl-data-table__cell--non-numeric">E-MAIL</th>
+                        <th class="mdl-data-table__cell--non-numeric">POINTS</th>
+                        <th class="mdl-data-table__cell--non-numeric">QUIZ</th>
+                        <th class="mdl-data-table__cell--non-numeric"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyInbox"></tbody>
+            </table>
+        </div>
+    </section>
+  </main>
+ </div>
+ <div id="editor" class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs" style="display:none">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout-icon"></div>
+    <div class="mdl-layout__header-row">
+      <span class="editor mdl-layout__title">
+       	<span id="editorUsername" class="page_title_span" ></span>
+      	<span class="page_title_span">|</span><span class="page_title_span">Quiz</span>
+      </span> 
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+         <button class="button-sign-out mdl-button mdl-js-button mdl-button--raised mdl-button--accent" id="signOUTEditor">Logout <i class="button-right-icon material-icons">account_circle</i></button>
+      </nav>
+    </div>
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Quiz</a>
+      <a href="#fixed-tab-3" class="mdl-layout__tab">Inbox</a>
+    </div>
+  </header>
+ 
+  <main class="mdl-layout__content">
+    <section  class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+       <div class="mdl-layout">
+            <table class="quiz-list mdl-data-table mdl-js-data-table  mdl-shadow--2dp icons-hover">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric"># ID</th>
+                        <th class="mdl-data-table__cell--non-numeric">QUIZ NAME</th>
+                        <th class="mdl-data-table__cell--non-numeric">NUMBER OF QUESTIONS</th>
+                        <th class="mdl-data-table__cell--non-numeric">MAX POINTS</th>
+                        <th  align="right">
+                     </tr>
+                </thead>
+                <tbody id="tbodyQuizEditor">
+                    
+                </tbody>
+            </table>
+    </div>
+    <button id="createNewQuizEditor" class="create-new-button mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Create new</button>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+        <div class="mdl-layout">
+            <table class="inbox-list mdl-data-table mdl-js-data-table icons-hover">
+                <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric"># ID</th>
+                        <th class="mdl-data-table__cell--non-numeric">FIRST NAME</th>
+                        <th class="mdl-data-table__cell--non-numeric">LAST NAME</th>
+                        <th class="mdl-data-table__cell--non-numeric">E-MAIL</th>
+                        <th class="mdl-data-table__cell--non-numeric">POINTS</th>
+                        <th class="mdl-data-table__cell--non-numeric">QUIZ</th>
+                        <th class="mdl-data-table__cell--non-numeric"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyInboxQuizEditor"></tbody>
+            </table>
+        </div>
+    </section>
+  </main>
+ </div>
+ 
+    <script>
+	    $.ajaxSetup({
+	    	url:"admin",
+	        async: false
+	    });
+		var questionNum = 1;
+        var dialog = document.querySelector(".editmember");
+        if (! dialog.showModal) {
+        	dialogPolyfill.registerDialog(dialog);
+        }
+        dialog.querySelector('.close').addEventListener('click', function() {
+            dialog.close();
+        });
+        
+        dialog.querySelector('.save').addEventListener('click', function() {
+            EditUser={username:"",firstname:"",lastname:"",email:"",password:""};
+            var editUsername = $("#editUsername").val();
+            var editFirstname = $("#editFirstname").val();
+            var editLastname = $("#editLastname").val();
+            var editEmail = $("#editEmail").val();
+            var editPassword = $("#editPassword").val();
+             
+            if(editUsername=="" || editFirstname=="" || editLastname=="" || editEmail=="" || editPassword==""){
+                      document.getElementById("warning4").innerHTML = "Some fields are empty";
+                       return;
+            }
+            EditUser.username=editUsername;
+            EditUser.firstname=editFirstname;
+            EditUser.lastname=editLastname;
+            EditUser.email=editEmail;
+            EditUser.password=editPassword;
+            var json=JSON.stringify(EditUser);
+            $.ajax({
+          	  method: "POST",
+          	  data: { "UpdateUser": json }
+          	})
+          	updateUsers();
+            dialog.close();
+          });
+        
+        var dialog1 = document.querySelector(".createMember");
+        if (! dialog1.showModal) {
+        	dialogPolyfill.registerDialog(dialog1);
+        }
+        dialog1.querySelector('.close2').addEventListener('click', function() {
+          dialog1.close();
+        });
+         dialog1.querySelector('.save2').addEventListener('click', function() {
+        	 NewUser={username:"",firstname:"",lastname:"",email:"",password:""};
+             var newUsername = $("#newUsername").val();
+             var newFirstname = $("#newFirstname").val();
+             var newLastname = $("#newLastname").val();
+             var newEmail = $("#newEmail").val();
+             var newPassword = $("#newPassword").val();  
+             if(newUsername=="" || newFirstname=="" || newLastname=="" || newEmail=="" || newPassword=="")
+             {
+             	document.getElementById("warning3").innerHTML = "Some fields are empty";
+             	return;
+             }
+             NewUser.username=newUsername;
+             NewUser.firstname=newFirstname;
+             NewUser.lastname=newLastname;
+             NewUser.email=newEmail;
+             NewUser.password=newPassword;
+             var json=JSON.stringify(NewUser);
+             var exists;
+             $.getJSON("admin",{username:NewUser.username}, function(result){
+             	  if(result.exists[0]=="true")
+             		{
+             		 document.getElementById("warning3").innerHTML = "Username already exists !!";
+                	  
+             			exists="true";
+             			return;
+             		}
+             	  else
+             			exists="false";
+             });
+             if(exists=="true")
+           	  return;
+             $.post( "admin", { "newUser": json } );
+           	updateUsers();
+           	dialog1.close();
+        });
+
+        var dialog2 = document.querySelector(".editQuiz");
+        if (! dialog2.showModal) {
+        	dialogPolyfill.registerDialog(dialog2);
+        }
+        dialog2.querySelector('.close1').addEventListener('click', function() {
+          dialog2.close();
+        });
+		
+        var dialog4 = document.querySelector(".newQuiz");
+        dialogPolyfill.registerDialog(dialog4);
+        dialog4.querySelector('.close4').addEventListener('click', function() {
+            dialog4.close();   
+        });
+        dialog4.querySelector('.close5').addEventListener('click', function() {
+            dialog4.close();   
+        });
+        dialog4.querySelector('.save1').addEventListener('click', function() {
+        	if(username!=" "); 
+        		quiz.editor=username[0];
+        	 var json=JSON.stringify(quiz);
+        	 if(username!="")
+        	 {
+        		 $.post( "admin", { newQuizEditor: json});
+        		 updateQuizEditor(); 	
+        	 }
+        	 else{
+        	 	$.post( "admin", { newQuiz: json });
+       			updateQuiz();
+        	 }
+       		dialog4.close();        	    
+        });
+        dialog4.querySelector('.close6').addEventListener('click', function() {
+            dialog4.close();   
+        });
+   
+        var dialog5 = document.querySelector(".inboxQuiz");
+        dialogPolyfill.registerDialog(dialog5);
+        dialog5.querySelector('.close7').addEventListener('click', function() {
+          dialog5.close();
+        });
+
+    function addNewMemberContent()
+    {
+       $('#createMemberContent').append('<div id = "warning3" style="text-align:center; color:deeppink; font-weight:bold"></div>');        
+       $('#createMemberContent').append('<div id="divNewUsername" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+       $('#divNewUsername').append('<input id="newUsername" class="mdl-textfield__input" pattern="[A-Za-z]*([A-Za-z]+)?" id="NewUserName">');
+       $('#divNewUsername').append('<label class="mdl-textfield__label" for="NewUserName">User Name</label>');
+       $('#divNewUsername').append('<span class="mdl-textfield__error">Username is not right formated!</span>');
+       
+       $('#createMemberContent').append('<div id="divNewFirstname" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+       $('#divNewFirstname').append('<input id="newFirstname" class="mdl-textfield__input"  id="NewFirstname">');
+       $('#divNewFirstname').append('<label class="mdl-textfield__label" for="NewFirstName">First Name</label>');
+       $('#divNewFirstname').append('<span class="mdl-textfield__error">Firstname is not right formated!</span>');
+       
+       $('#createMemberContent').append('<div id="divNewLastname" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+       $('#divNewLastname').append('<input id="newLastname" class="mdl-textfield__input"  id="NewLastname">');
+       $('#divNewLastname').append('<label class="mdl-textfield__label" for="NewLastName">Last Name</label>');
+       $('#divNewLastname').append('<span class="mdl-textfield__error">Lastname is not right formated!</span>');
+       
+       $('#createMemberContent').append('<div id="divNewEmail" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+       $('#divNewEmail').append('<input id="newEmail" class="mdl-textfield__input"  id="NewEmail">');
+       $('#divNewEmail').append('<label class="mdl-textfield__label" for="NewEmail">E-Mail</label>');
+       $('#divNewEmail').append('<span class="mdl-textfield__error">E-Mail is not right formated!</span>');
+       
+       $('#createMemberContent').append('<div id="divNewPassword" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">');
+       $('#divNewPassword').append('<input id="newPassword" class="mdl-textfield__input" pattern="[A-Za-z]*([A-Za-z0-9]+)?" id="NewPassword">');
+       $('#divNewPassword').append('<label class="mdl-textfield__label" for="NewPassword">Password</label>');
+       $('#divNewPassword').append('<span class="mdl-textfield__error">Password is not right formated!</span>'); 
+       componentHandler.upgradeAllRegistered();
+    }
+    function EditMemberContent(ID)
+    {	
+    	 $.getJSON("admin",{editor:ID}, function(result){
+           $('#editMemberContent').append('<div id = "warning4" style="text-align:center; color:deeppink; font-weight:bold"></div>');
+    	   $('#editMemberContent').append('<div id="divEditUsername" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+	       $('#divEditUsername').append('<input id="editUsername" class="mdl-textfield__input"  value="'+result.username_+'" id="EditUserName" disabled>');
+	       $('#divEditUsername').append('<label class="mdl-textfield__label" for="EditUserName">User Name</label>');
+	       $('#divEditUsername').append('<span class="mdl-textfield__error">Username is not right formated!</span>');
+	       
+	       $('#editMemberContent').append('<div id="divEditFirstname" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+	       $('#divEditFirstname').append('<input id="editFirstname" class="mdl-textfield__input"  value="'+result.first_name_+'" id="EditFirstname">');
+	       $('#divEditFirstname').append('<label class="mdl-textfield__label" for="EditFirstName">First Name</label>');
+	       $('#divEditFirstname').append('<span class="mdl-textfield__error">Firstname is not right formated!</span>');
+	       
+	       $('#editMemberContent').append('<div id="divEditLastname" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+	       $('#divEditLastname').append('<input id="editLastname" class="mdl-textfield__input"  value="'+result.last_name_+'" id="EditLastname">');
+	       $('#divEditLastname').append('<label class="mdl-textfield__label" for="EditLastName">Last Name</label>');
+	       $('#divEditLastname').append('<span class="mdl-textfield__error">Lastname is not right formated!</span>');
+	       
+	       $('#editMemberContent').append('<div id="divEditEmail" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+	       $('#divEditEmail').append('<input id="editEmail" class="mdl-textfield__input"  value="'+result.e_mail_+'" id="EditEmail">');
+	       $('#divEditEmail').append('<label class="mdl-textfield__label" for="EditEmail">E-Mail</label>');
+	       $('#divEditEmail').append('<span class="mdl-textfield__error">E-Mail is not right formated!</span>');
+	       
+	       $('#editMemberContent').append('<div id="divEditPassword" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">');
+	       $('#divEditPassword').append('<input id="editPassword" class="mdl-textfield__input" pattern="[A-Za-z]*([A-Za-z0-9]+)?" value="'+result.password_+'" id="EditPassword">');
+	       $('#divEditPassword').append('<label class="mdl-textfield__label" for="EditPassword">Password</label>');
+	       $('#divEditPassword').append('<span class="mdl-textfield__error">Password is not right formated!</span>'); 
+	       componentHandler.upgradeAllRegistered(); 
+    	 });
+    }    
+    
+        $( ".create" ).click(function() {
+        $( "#createMemberContent").empty();
+        addNewMemberContent();  
+        dialog1.showModal();
+    });
+    
+    function reloadQuiz()
+    {
+    	 dialog2.showModal();	
+    }
+    
+     var deleteMemeberId;
+     var dialog11 = document.querySelector(".deleteMember");
+    dialogPolyfill.registerDialog(dialog11);
+         dialog11.querySelector('.yesMember').addEventListener('click', function() {
+        		$.ajax({
+    			    url:"admin",
+    				method: 'POST',
+    			    data:{DeleteEditor:deleteMemeberId}
+    			    });
+    		updateUsers();
+    dialog11.close();
+});
+     dialog11.querySelector('.noMember').addEventListener('click', function() {
+    dialog11.close();
+});
+    
+   
+    function updateQuiz()
+    {
+        $( "#tbodyQuiz").empty();
+        $.getJSON("admin",{quizes:"quizes"}, function(result){
+            $.each(result, function(i, field){
+            	$('#tbodyQuiz').append('<tr id="trquiz'+i+'"></tr>');
+                $('#trquiz'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].id+'</td>');
+                $('#trquiz'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].name+'</td>');
+                $('#trquiz'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].number_of_questions+'</td>');
+                $('#trquiz'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].points+'</td>');
+                $('#trquiz'+i+'').append('<td class="mdl-data-table__cell--non-numeric"><span id="'+result[i].id+'"class="icons editquiz"><i class="material-icons">create</i></span></td>');
+                $('#trquiz'+i+'').on('click','span', reloadQuiz); 
+               });
+        });
+            
+        componentHandler.upgradeAllRegistered();
+    }
+    function updateQuizEditor()
+    {
+        $( "#tbodyQuizEditor").empty();
+        $.getJSON("admin",{quizesEditor:"quizes",username:username[0]}, function(result){
+            $.each(result, function(i, field){
+            	$('#tbodyQuizEditor').append('<tr id="trquizEditor'+i+'"></tr>');
+                $('#trquizEditor'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].id+'</td>');
+                $('#trquizEditor'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].name+'</td>');
+                $('#trquizEditor'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].number_of_questions+'</td>');
+                $('#trquizEditor'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].points+'</td>');
+                $('#trquizEditor'+i+'').append('<td class="mdl-data-table__cell--non-numeric"><span id="'+result[i].id+'"class="icons editquiz"><i class="material-icons">create</i></span></td>');
+                $('#trquizEditor'+i+'').append('<td class="mdl-data-table__cell--non-numeric"><div id="'+result[i].id+'" class="icons deletequiz"><i class="material-icons">clear</i></div></td>');
+                $('#trquizEditor'+i+'').on('click','span', reloadQuiz); 
+            });
+        });
+            
+        componentHandler.upgradeAllRegistered();
+    }
+     
+    function updateUsers(){
+        $( "#tbodyUsers").empty();
+        $.getJSON("admin",{users:"users"}, function(result){
+            $.each(result, function(i, field){
+            editorId = result[i].editor_id_;
+            $('#tbodyUsers').append('<tr id="truser'+i+'"></tr>');
+            $('#truser'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].editor_id_+'</td>');
+            $('#truser'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].first_name_+'</td>');
+            $('#truser'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].last_name_+'</td>');
+            $('#truser'+i+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].e_mail_+'</td>');
+            $('#truser'+i+'').append('<td class="mdl-data-table__cell--non-numeric"><span id="'+result[i].editor_id_+'" class="icons editUser"><i class="material-icons">create</i></span></td>');
+            $('#truser'+i+'').append('<td class="mdl-data-table__cell--non-numeric"><div id="'+result[i].editor_id_+'" class="icons deleteUser"><i class="material-icons">clear</i></div></td>');
+            $('#truser'+i+'').on('click','span', reload);
+            $('#truser'+i+'').on('click','div', reloadUserDelete); 
+            });
+        });
+        
+        componentHandler.upgradeAllRegistered();
+}
+    function updateInbox(){
+        $( "#tbodyInbox").empty();
+        $.getJSON("admin",{inbox:"inbox"}, function(result){
+        	var column=0;
+        	$.each(result, function(i, field){
+        		console.log(result[i]);
+        		$.each(result[i].players[0], function(ii, field1){
+        		 	$('#tbodyInbox').append('<tr id="trinbox'+column+'"></tr>');
+		            $('#trinbox'+column+'').append('<td id="tdId'+column+'" class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].id[0]+'</td>');
+		            $('#trinbox'+column+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].first_name_[0]+'</td>');
+		            $('#trinbox'+column+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].last_name_[0]+'</td>');
+		            $('#trinbox'+column+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].e_mail_[0]+'</td>');
+		            $('#trinbox'+column+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].points[0]+'</td>');
+		            $('#trinbox'+column+'').append('<td id="tdQuiz'+column+'"class="mdl-data-table__cell--non-numeric">'+result[i].quiz[0]+'</td>');
+		            $('#trinbox'+column+'').append('<td class="mdl-data-table__cell--non-numeric"><span id="'+column+'" class="icons show"><i class="material-icons">play_arrow</i></span></td>');
+		            $('#trinbox'+column+'').on('click','span', reloadInbox);
+		            ++column;
+        		});
+        	});
+        });
+        	
+        componentHandler.upgradeAllRegistered();
+}
+    
+function updateInboxEditor(){
+    $( "#tbodyInboxQuizEditor").empty();
+    $.getJSON("admin",{inboxEditor:"inbox",username:username[0]}, function(result){
+    	var column=0;
+    	$.each(result, function(i, field){
+    		console.log(result[i]);
+    		$.each(result[i].players[0], function(ii, field1){
+    		 	$('#tbodyInboxQuizEditor').append('<tr id="trinboxEditor'+column+'"></tr>');
+	            $('#trinboxEditor'+column+'').append('<td id="tdIdEditor'+column+'" class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].id[0]+'</td>');
+	            $('#trinboxEditor'+column+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].first_name_[0]+'</td>');
+	            $('#trinboxEditor'+column+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].last_name_[0]+'</td>');
+	            $('#trinboxEditor'+column+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].e_mail_[0]+'</td>');
+	            $('#trinboxEditor'+column+'').append('<td class="mdl-data-table__cell--non-numeric">'+result[i].players[0][ii].points[0]+'</td>');
+	            $('#trinboxEditor'+column+'').append('<td id="tdQuizEditor'+column+'"class="mdl-data-table__cell--non-numeric">'+result[i].quiz[0]+'</td>');
+	            $('#trinboxEditor'+column+'').append('<td class="mdl-data-table__cell--non-numeric"><span id="'+column+'" class="icons show"><i class="material-icons">play_arrow</i></span></td>');
+	            $('#trinboxEditor'+column+'').on('click','span', reloadInbox);
+	            ++column;
+    		});
+    	});
+    });
+    	
+    componentHandler.upgradeAllRegistered();
+}
+    function reloadInbox(){
+    	InboxQuiz($('#tdId'+this.id+'').html(),$('#tdQuiz'+this.id+'').html());
+    	dialog5.showModal();
+    }
+    function reloadInboxEditor(){
+    	InboxQuiz($('#tdIdEditor'+this.id+'').html(),$('#tdQuizEditor'+this.id+'').html());
+    	dialog5.showModal();
+    }
+        
+    function reload(){
+        $( "#editMemberContent").empty();
+        EditMemberContent(this.id); 
+        dialog.showModal();
+    }
+
+	function reloadUserDelete()
+	{
+		deleteMemeberId = this.id;
+		dialog11.showModal();
+	
+	}
+
+    var list = document.createElement("ol");
+    
+    $("#signIN").click(function(){
+	var user = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+	
+	if(user == "admin" && password=="admin")
+	{	
+		$("#login").hide();
+        $("#superadmin").show();
+        updateInbox();
+        updateUsers();   
+        updateQuiz();
+	}
+	else
+	{
+		$.getJSON("admin",{editorLogin:"editor",Username:user,Password:password}, function(result){
+			if(result.correct=="true"){
+				username=result.username;
+				id=result.id;
+				document.getElementById("editorUsername").innerHTML =username;
+				updateQuizEditor();
+				updateInboxEditor();
+		        $("#login").hide();
+		        $("#editor").show();
+			}
+			else{
+				$("#errorLogin").show();
+			}
+		});   
+    }
+    });
+     $("#exit").click(function(){
+         $(".Edit").fadeOut();
+    });    
+    $("#signOUT").click(function(){
+     	$("#superadmin").hide();
+    	$("#login").show();
+    	$("#errorLogin").hide();
+    });
+    $("#signOUTEditor").click(function(){
+    	username="";
+    	id="";
+        $("#editor").hide();
+        $("#login").show();
+        $("#errorLogin").hide();
+    });
+    $( ".editUser" ).click(function() {
+       reload();
+          
+    });
+    $( ".show" ).click(function() {
+          reloadInbox();
+    });
+        
+    $( ".deleteUser" ).click(function() {
+        reloadUserDelete();
+    });
+    $( ".editquiz" ).click(function() {
+          reloadQuiz();
+    });
+   
+     $( ".doneButton" ).click(function() {
+        $("#doneList").show();
+    });
+
+    $( ".memberdoneButton" ).click(function() {
+        $("#doneList1").show();
+    });
+    
+     
+     var updateOutput = function(e)
+    {
+        var list   = e.length ? e : $(e.target),
+            output = list.data('output');
+        if (window.JSON) {
+            output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+        } else {
+            output.val('JSON browser support required for this demo.');
+        }
+    };
+
+    // activate Nestable for list 1
+    $('#nestable').nestable({
+        group: 1
+    })
+    .on('change', updateOutput);
+
+    // activate Nestable for list 2
+    $('#nestable2').nestable({
+        group: 1
+    })
+    .on('change', updateOutput);
+
+    // output initial serialised data
+    updateOutput($('#nestable').data('output', $('#nestable-output')));
+
+    $('#nestable-menu').on('click', function(e)
+    {
+        var target = $(e.target),
+            action = target.data('action');
+        if (action === 'expand-all') {
+            $('.dd').nestable('expandAll');
+        }
+        if (action === 'collapse-all') {
+            $('.dd').nestable('collapseAll');
+        }
+    });
+
+    $('#nestable3').nestable();
+       
+    function addQuizName()
+    {
+       $('#newQuizContent').empty();
+       $('#newQuizContent').append('<div id="quizHeader" class="quizHeader"></div>');
+       $('#quizHeader').append('<div id="newQuiz" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+       $('#newQuiz').append('<input class="mdl-textfield__input" pattern="[A-Z]*([A-Za-z0-9]+)?" id="NewNameQuiz">');
+       $('#newQuiz').append('<label class="mdl-textfield__label" for="NewNameQuiz">Quiz name</label>');
+       $('#newQuiz').append('<span class="mdl-textfield__error">Quiz name is not right formated!</span>');
+       $('#newQuizContent').append('<div id="warning2" style="text-align:center; color:deeppink; font-weight:bold"></div>');
+       $('#newQuizContent').append('<div id="quizPhoto"></div>');
+       $('#quizPhoto').append('<div style="color:rgb(0,128,128);font-weight:bold;font-size:17px">Select image:</div>');
+       $('#quizPhoto').append('<div id="photo1" class="photo"></div>');
+       $('#photo1').append('<img src="slika8.jpg" style="width:75px;height:75px;">');
+       $('#photo1').append(' <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" id="label" for="check1"></label>');
+       $('#label').append('<input type="radio" id="check1" class="mdl-radio__button" name="options">');
+        $('#quizPhoto').append('<div id="photo2" class="photo"></div>');
+       $('#photo2').append('<img src="slika2.jpg" style="width:75px;height:75px;">');
+       $('#photo2').append(' <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" id="label2" for="check2"></label>');
+       $('#label2').append('<input type="radio" id="check2" class="mdl-radio__button" name="options">');
+        $('#quizPhoto').append('<div id="photo3" class="photo"></div>');
+       $('#photo3').append('<img src="slika3.jpg" style="width:75px;height:75px;">');
+       $('#photo3').append(' <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" id="label3" for="check3"></label>');
+       $('#label3').append('<input type="radio" id="check3" class="mdl-radio__button" name="options">');
+          $('#quizPhoto').append('<div id="photo4" class="photo"></div>');
+       $('#photo4').append('<img src="slika6.png" style="width:75px;height:75px;">');
+       $('#photo4').append(' <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" id="label4" for="check4"></label>');
+       $('#label4').append('<input type="radio" id="check4" class="mdl-radio__button" name="options">');
+	   $('#quizPhoto').append('<div id="photo5" class="photo"></div>');
+       $('#photo5').append('<img src="slika5.jpg" style="width:75px;height:75px;">');
+       $('#photo5').append(' <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" id="label5" for="check5"></label>');
+       $('#label5').append('<input type="radio" id="check5" class="mdl-radio__button" name="options">');
+	   $('#quizPhoto').append('<div id="photo6" class="photo"></div>');
+       $('#photo6').append('<img src="slika7.jpg" style="width:75px;height:75px;">');
+       $('#photo6').append(' <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" id="label6" for="check6"></label>');
+       $('#label6').append('<input type="radio" id="check6" class="mdl-radio__button" name="options">');
+        componentHandler.upgradeAllRegistered();
+    }
+    function addQuestionDIV()
+    {
+       $('#newQuizContent').empty();
+       $('#newQuizContent').append('<div id="quizHeader" class="quizHeader"></div>');
+       $('#quizHeader').append('<div id="numberOfQuestion">'+questionNum+'.</div>');
+       $('#quizHeader').append('<div id="questionDiv" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"></div>');
+       $('#questionDiv').append('<input class="mdl-textfield__input" id="nameOfQuestion">');
+       $('#questionDiv').append('<label class="mdl-textfield__label" for="nameOfQuestion">Question:</label>');
+       $('#questionDiv').append('<span class="mdl-textfield__error">Question is not right formated!</span>');
+       $('#quizHeader').append('<div id="warning" style="text-align:center; color:deeppink; font-weight:bold"></div>');
+       $('#quizHeader').append('<div id="timeDiv" class="timePoints" style="text-align:center;margin-top:5px;margin-left:20px"></div>');
+       $('#timeDiv').append('<p>Time for question</p>'); 
+       $('#timeDiv').append('<input id="timeInput" class="mdl-slider mdl-js-slider" type="range" min="5" max="60" value="30" step="5" tabindex="0" oninput="showTimeMessage(this.value)" onchange="showTimeMessage(this.value)" >');
+       $('#timeDiv').append('<div id="TimeValue"></div>'); 
+       $('#quizHeader').append('<div id="PointsDiv" class="timePoints" style="text-align:center;margin-top:5px;margin-left:20px"></div>');
+       $('#PointsDiv').append('<p>Points for question</p>'); 
+       $('#PointsDiv').append('<input id="pointsInput" class="mdl-slider mdl-js-slider" type="range" min="1" max="10" value="5" step="1" tabindex="0" oninput="showPointsMessage(this.value)" onchange="showPointsMessage(this.value)">');
+       $('#PointsDiv').append('<div id="PointsValue"></div>'); 
+       $('#quizHeader').append('<button class=" addAnswer mdl-button mdl-js-button mdl-button--accent" style="margin-left:35px; " onclick="addQuestion()">Add answer</button>');
+       $('#quizHeader').append('<div id="answer" ></div>');            
+        componentHandler.upgradeAllRegistered();
+    }
+    function showTimeMessage(value){
+         document.getElementById("TimeValue").innerHTML = "Value: "+value +" s";
+      }
+    function showPointsMessage(value){
+         document.getElementById("PointsValue").innerHTML = "Value: "+value +" s";
+      }
+    $("#createNewQuizEditor").click(function() {
+    	questionNum = 1;
+        divAnswerId=0;
+        $(".first").css('display','block');
+        $(".second").css('display','none');
+        $(".third").css('display','none');
+        dialog4.showModal();
+        addQuizName();
+    });
+    $("#createNew").click(function() {
+    	questionNum = 1;
+        divAnswerId=0;
+        $(".first").css('display','block');
+        $(".second").css('display','none');
+        $(".third").css('display','none');
+        dialog4.showModal();
+        addQuizName();
+    });
+    var divAnswerId=0;
+    function addQuestion()
+    {
+        if(divAnswerId==5){
+            document.getElementById("warning").innerHTML = "You cannot add more than 5 answers !!";
+            return;
+        }
+       var divID="div"+divAnswerId; 
+       $('#answer').append('<div style="margin-left:5px" id="'+divID+'"></div>');
+       $('#'+divID+'').append('<label id="checkLabel'+divAnswerId+'" class="cLabel mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox'+divAnswerId+'" style="width:auto"></label>');
+       $('#checkLabel'+divAnswerId+'').append('<input type="checkbox" id="checkbox'+divAnswerId+'" class="mdl-checkbox__input">');
+       $('#'+divID+'').append('<div id="inputDiv'+divAnswerId+'" class="iDiv mdl-textfield mdl-js-textfield" style="padding-top:0px; width:240px"></div>');
+        $('#inputDiv'+divAnswerId+'').append(' <input class="mdl-textfield__input" id="inputAnswer'+divAnswerId+'">');
+       $('#inputDiv'+divAnswerId+'').append('<label class="iLabel mdl-textfield__label" for="inputAnswer'+divAnswerId+'"></label>');         
+       componentHandler.upgradeAllRegistered();
+       divAnswerId=divAnswerId+1;
+        }
+    function getAnswers()
+    {
+        var correct_answers=0;
+        for(i=0;i<divAnswerId;++i)
+        {
+            var nameOfanswer=$('#inputAnswer'+i+'').val();
+            var IsCorrect;
+            if(nameOfanswer==""){
+                document.getElementById("warning").innerHTML = "Please insert the answer.";
+                return false;    
+               }
+            if($('#checkbox'+i+'').is(':checked')==true){
+                IsCorrect=true;
+                ++correct_answers;
+            }
+            else
+                IsCorrect=false;
+            var Answer={name:nameOfanswer,isCorrect:IsCorrect};
+            
+        for(var j=0; j<question.answers.length; ++j)
+        {
+                if(question.answers[j].name == Answer.name)
+                {    
+                    document.getElementById("warning").innerHTML = "You cannot have two or more same answers in one question !!";        
+                    return false;
+                }
+        }
+            question.answers.push(Answer);
+        }
+        if(correct_answers==0){
+            document.getElementById("warning").innerHTML = "You must select at least one correct answer.";        
+            return false;
+        }
+        if(correct_answers==divAnswerId){
+            document.getElementById("warning").innerHTML ="All answers cannot be corect !!";        
+            return false;
+        }
+        var points=$('#pointsInput').val();
+        var time=$('#timeInput').val();
+        question.time=time;
+        question.points=points;
+        quiz.question.push(question);
+    }
+    $(".next1").click(function() {
+		question={name:"",answers:new Array(),points:5,time:30};
+        var newQuestion = $("#nameOfQuestion").val();
+        if(newQuestion ==""){
+           document.getElementById("warning").innerHTML ="Please insert the question.";
+            return;
+        }
+        
+        for(var i=0; i<quiz.question.length; ++i)
+        {
+            
+            if(quiz.question[i].name == newQuestion)
+            {    document.getElementById("warning").innerHTML = "That question already exists in quiz !!";
+                return;
+            }
+        }
+        if(divAnswerId<2 || divAnswerId>5){
+                document.getElementById("warning").innerHTML ="Question can only have bettwen 2 and 5 answers!!!";
+                return;
+        }
+        if(getAnswers()==false){
+                return;
+        }
+        question.num = questionNum;
+    	questionNum = questionNum + 1;    
+        question.name=newQuestion;
+        divAnswerId=0;
+        addQuestionDIV();
+        
+    });
+    
+    $('.finish').click(function(){	
+        if(quiz.question.length==0){
+                    document.getElementById("warning").innerHTML = "Please add some question and then press finish";
+                    return;
+                }
+        $(".second").css('display','none');
+        $(".third").css('display','block');
+                $('#newQuizContent').empty();
+                $('#newQuizContent').append('<h4>'+quiz.name+'</h4>');
+                $('#newQuizContent').append('<ol class="questionList" id="questionList1"></ol>');
+                for(i=0;i<quiz.question.length;++i){
+                    $('#questionList1').append('<li class="questionItem" id="questionItem'+i+'"></li>');
+                    $('#questionItem'+i+'').append('<div class="question-Name">'+quiz.question[i].num+'. '+quiz.question[i].name+'</div>');
+                    $('#questionItem'+i+'').append('<div class="Answer" id="answer'+i+'"></div>');
+                    $('#answer'+i+'').append('<ul style="padding-top:5px;" id="ul'+i+'"></ul>');
+                    for(ii=0;ii<quiz.question[i].answers.length;++ii){
+                        if(quiz.question[i].answers[ii].isCorrect==true){
+                            $('#ul'+i+'').append('<li id="answer'+i+ii+'" class="mdl-list__item" style="font-size: 13px;padding:5px;min-height: 10px;"></li>');
+                            $('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">done</i>'+quiz.question[i].answers[ii].name+'</span>');
+                        }
+                        else{
+                            $('#ul'+i+'').append('<li id="answer'+i+ii+'" class="mdl-list__item" style="font-size: 13px;padding:5px;min-height: 10px;"></li>');
+                            $('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">clear</i>'+quiz.question[i].answers[ii].name+'</span>');    
+                        }
+                    }
+                }
+                $('div.Answer').hide();
+                componentHandler.upgradeAllRegistered();
+                $('.questionList').on('click', 'li', fun);       
+            });
+            function InboxQuiz(Id,Quiz){
+            	$.getJSON("admin",{InboxQuiz:"quiz",idPlayer:Id,quizName:Quiz}, function(result){
+            	console.log(result);
+            	
+                $('#inboxQuizContent').empty();
+                document.getElementById("nameOfQuiz").innerHTML=result.quiz[0];
+                $('#inboxQuizContent').append('<h5 id="player">'+result.first_name_[0]+' '+result.last_name_[0]+'</h5>');
+                $('#inboxQuizContent').append('<ol class="questionList" id="questionInbox"></ol>');
+                $.each(result.questions[0], function(i, field){
+                    if(result.questions[0][i].correct[0]==true){    
+                        $('#questionInbox').append('<li class="questionItem" id="questionInboxItem'+i+'"></li>');
+                        $('#questionInboxItem'+i+'').append('<div class="question-Name correct">'+result.questions[0][i].name[0]+'</div>');
+                        $('#questionInboxItem'+i+'').append('<div class="Answer" id="answerInbox'+i+'"></div>');
+                        $('#answerInbox'+i+'').append('<ul style="padding-top:5px;" id="ul'+i+'"></ul>');
+                    }
+                    else{
+                        $('#questionInbox').append('<li class="questionItem" id="questionInboxItem'+i+'"></li>');
+                        $('#questionInboxItem'+i+'').append('<div class="question-Name wrong">'+result.questions[0][i].name[0]+'</div>');
+                        $('#questionInboxItem'+i+'').append('<div class="Answer" id="answerInbox'+i+'"></div>');
+                        $('#answerInbox'+i+'').append('<ul style="padding-top:5px;" id="ul'+i+'"></ul>');
+                    }
+                    
+                            $('#ul'+i+'').append('<span style="font-weight:bold; font-size:14px; margin-right:60px; margin-bottom:15px; color:rgb(150,150,150)">Correct</span>');
+                            $('#ul'+i+'').append('<span style="font-weight:bold; font-size:14px; margin-right:70px; margin-bottom:15px; color:rgb(150,150,150)">Player</span>');
+                            $('#ul'+i+'').append('<span style="font-weight:bold; font-size:14px; margin-bottom:15px;color:rgb(150,150,150)">Answers</span>');
+                            
+                            $.each(result.questions[0][i].answers[0], function(ii, field){
+                            	$('#ul'+i+'').append('<li id="answer'+i+ii+'" class="mdl-list__item" style="font-size: 12px;padding:3px;min-height: 10px;"></li>');
+                            	
+                            	if(result.questions[0][i].answers[0][ii].correctAnswer[0])
+                                    $('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">done</i></span>');
+                            	else
+                            		$('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">clear</i></span>');
+                            	    
+                            	if(result.questions[0][i].answers[0][ii].playerAnswer[0])
+                                    $('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">done</i></span>');
+                            	else
+                            		$('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content" style="font-size:12px"><i class="material-icons mdl-list__item-icon">clear</i></span>');
+                                
+                            	$('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"style="color:rgb(100,100,100)">'+result.questions[0][i].answers[0][ii].answer[0]+'</span>');
+                        });
+                            $('div.Answer').hide();
+                            $('.questionList').on('click', 'li', fun);
+                });
+            	});
+            	componentHandler.upgradeAllRegistered();
+            }
+            function InboxQuizEditor(Id,Quiz){
+            	$.getJSON("admin",{InboxQuiz:"quiz",idPlayer:Id,quizName:Quiz}, function(result){
+            	console.log(result);
+            	
+                $('#inboxQuizContent').empty();
+                document.getElementById("nameOfQuiz").innerHTML=result.quiz[0];
+                $('#inboxQuizContent').append('<h5 id="player">'+result.first_name_[0]+' '+result.last_name_[0]+'</h5>');
+                $('#inboxQuizContent').append('<ol class="questionList" id="questionInbox"></ol>');
+                $.each(result.questions[0], function(i, field){
+                    if(result.questions[0][i].correct[0]==true){    
+                        $('#questionInbox').append('<li class="questionItem" id="questionInboxItem'+i+'"></li>');
+                        $('#questionInboxItem'+i+'').append('<div class="question-Name correct">'+result.questions[0][i].name[0]+'</div>');
+                        $('#questionInboxItem'+i+'').append('<div class="Answer" id="answerInbox'+i+'"></div>');
+                        $('#answerInbox'+i+'').append('<ul style="padding-top:5px;" id="ul'+i+'"></ul>');
+                    }
+                    else{
+                        $('#questionInbox').append('<li class="questionItem" id="questionInboxItem'+i+'"></li>');
+                        $('#questionInboxItem'+i+'').append('<div class="question-Name wrong">'+result.questions[0][i].name[0]+'</div>');
+                        $('#questionInboxItem'+i+'').append('<div class="Answer" id="answerInbox'+i+'"></div>');
+                        $('#answerInbox'+i+'').append('<ul style="padding-top:5px;" id="ul'+i+'"></ul>');
+                    }
+                    
+                            $('#ul'+i+'').append('<span style="font-weight:bold; font-size:14px; margin-right:60px; margin-bottom:15px; color:rgb(150,150,150)">Correct</span>');
+                            $('#ul'+i+'').append('<span style="font-weight:bold; font-size:14px; margin-right:70px; margin-bottom:15px; color:rgb(150,150,150)">Player</span>');
+                            $('#ul'+i+'').append('<span style="font-weight:bold; font-size:14px; margin-bottom:15px;color:rgb(150,150,150)">Answers</span>');
+                            
+                            $.each(result.questions[0][i].answers[0], function(ii, field){
+                            	$('#ul'+i+'').append('<li id="answer'+i+ii+'" class="mdl-list__item" style="font-size: 12px;padding:3px;min-height: 10px;"></li>');
+                            	
+                            	if(result.questions[0][i].answers[0][ii].correctAnswer[0])
+                                    $('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">done</i></span>');
+                            	else
+                            		$('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">clear</i></span>');
+                            	    
+                            	if(result.questions[0][i].answers[0][ii].playerAnswer[0])
+                                    $('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"><i class="material-icons mdl-list__item-icon">done</i></span>');
+                            	else
+                            		$('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content" style="font-size:12px"><i class="material-icons mdl-list__item-icon">clear</i></span>');
+                                
+                            	$('#answer'+i+ii+'').append('<span class="mdl-list__item-primary-content"style="color:rgb(100,100,100)">'+result.questions[0][i].answers[0][ii].answer[0]+'</span>');
+                        
+                           });
+                            $('div.Answer').hide();
+                            $('.questionList').on('click', 'li', fun);
+                });
+                
+            	});
+           
+            	  componentHandler.upgradeAllRegistered();
+            }
+           
+                
+              
+               
+            
+            
+            function fun(){
+                $('div.Answer').hide();
+                if($('div.Answer', this).css('display') == 'none')
+                    $('div.Answer', this).fadeIn();
+                else
+                    $('div.Answer', this).fadeOut();
+            }
+            
+            $('div.Answer').hide();
+            $('.questionList > li').click(fun);
+    $(".next").click(function() {
+        var newQuiz = $("#NewNameQuiz").val();
+        var picture="";
+        if(newQuiz==""){
+            document.getElementById("warning2").innerHTML = "Please insert the name of quiz.";
+            return;
+        }
+        for(i=0; i<6; ++i)
+        {
+            if($('#check'+i+'').is(':checked')==true)
+            {
+                picture = document.getElementById('photo'+i+'').firstChild.getAttribute("src");
+                break;
+            }
+        }
+        if(picture=="")
+            {
+                document.getElementById("warning2").innerHTML = "You must choose one picture.";
+                return;
+            }
+    /*    $.getJSON("admin",{quizname:newQuiz}, function(result){
+       	  if(result.exists[0]=="true")
+       		{
+       		 alert("Quiz name already exists!!!");
+       			exists="true";
+       			return;
+       		}
+       	  else
+       			exists="false";
+       });
+       if(exists=="true")
+     	  return;
+*/        quiz={name:"",question:new Array(),photo:"",editor:""};
+        quiz.name=newQuiz;
+        quiz.photo=picture;
+        $(".first").css('display','none');
+        $(".second").css('display','block');
+        addQuestionDIV();
+    });
+    var username="";
+    var id="";
+    var NewUser={username:"",firstname:"",lastname:"",email:"",password:""};
+    var question={name:"",answers:new Array(),points:0,time:0, num:0	};
+    quiz={name:"",question:new Array(),photo:"",editor:""};
+        </script>
+    </body>
+</html>
